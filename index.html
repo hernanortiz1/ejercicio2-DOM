@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
-<meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Practica de DOM" />
     <meta name="author" content="Hernan Ortiz" />
@@ -14,12 +15,10 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Ejercicio 2 DOM</title>
   </head>
-<body>
+  <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div
-          class="container"
-        >
+        <div class="container">
           <a class="navbar-brand" href="./index.html">Inicio</a>
           <button
             class="navbar-toggler"
@@ -40,12 +39,106 @@
       </nav>
     </header>
     <main>
-        
+      <section class="container">
+        <div class="contenedorPrincipal">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label"
+                >Nombre<span> *</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Ej: Juan Perez"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="edad" class="form-label">Edad<span> *</span></label>
+              <input
+                type="number"
+                class="form-control"
+                id="edad"
+                aria-describedby="edad"
+                placeholder="Ej: 26"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI<span> *</span></label>
+              <input
+                type="text"
+                class="form-control"
+                id="dni"
+                placeholder="Ej: 12345678"
+                minlength="6"
+                maxlength="8"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="sexo" class="form-label">Sexo<span> *</span></label>
+              <input
+                type="text"
+                class="form-control"
+                id="sexo"
+                placeholder="Ej: M mujer, H hombre"
+                minlength="1"
+                maxlength="6"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="peso" class="form-label"
+                >Peso (kg)<span> *</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="peso"
+                placeholder="Ej: 70 kg"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="fechaNacimiento" class="form-label"
+                >Fecha de nacimiento<span> *</span></label
+              >
+              <input
+                type="date"
+                class="form-control"
+                id="fechaNacimiento"
+                placeholder="Ej: 01/01/2000"
+                max="2025-05-10"
+                required
+              />
+            </div>
+            <div id="mensajeAyuda" class="form-text my-3">
+              Los campos (*) son obligatorios.
+            </div>
+          </form>        
+        </div>
+      </section>
     </main>
     <footer class="bg-dark-subtle py-3">
-        <div class="container d-flex gap-3 justify-content-center">
-             <h2>Desarrollado por <a href="https://github.com/hernanortiz1/" class="text-decoration-none" target="_blank">Hernán Ortiz</a></h2>
-        </div>
+      <div class="container d-flex gap-3 justify-content-center">
+        <h2>
+          Desarrollado por
+          <a
+            href="https://github.com/hernanortiz1/"
+            class="text-decoration-none"
+            target="_blank"
+            >Hernán Ortiz</a
+          >
+        </h2>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
