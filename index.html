@@ -39,7 +39,7 @@
       </nav>
     </header>
     <main>
-      <section class="container">
+      <section class="container mb-5 mt-4">
         <div class="contenedorPrincipal">
           <form>
             <div class="mb-3">
@@ -123,7 +123,23 @@
             <div id="mensajeAyuda" class="form-text my-3">
               Los campos (*) son obligatorios.
             </div>
-          </form>        
+            <div class="d-flex gap-3 justify-content-center mt-4">
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="mostrarGeneracion()"
+              >
+                Mostrar generación
+              </button>
+              <button
+                type="button"
+                class="btn btn-success"
+                onclick="verificarMayorEdad()"
+              >
+                Mayor de edad
+              </button>
+            </div>
+          </form>
         </div>
       </section>
     </main>
