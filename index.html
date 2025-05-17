@@ -108,15 +108,16 @@
               />
             </div>
             <div class="mb-3">
-              <label for="fechaNacimiento" class="form-label"
-                >Fecha de nacimiento<span> *</span></label
+              <label for="anioNacimiento" class="form-label"
+                >Año de nacimiento<span> *</span></label
               >
               <input
-                type="date"
+                type="number"
                 class="form-control"
-                id="fechaNacimiento"
-                placeholder="Ej: 01/01/2000"
-                max="2025-05-10"
+                id="anioNacimiento"
+                placeholder="Ej: 1998"
+                min="1900"
+                max="2025"
                 required
               />
             </div>
