@@ -79,8 +79,71 @@ const crearPersona = () => {
   );
 };
 
+const validarFormulario = () => {
+  const nombre = document.getElementById("nombre");
+  const edad = document.getElementById("edad");
+  const dni = document.getElementById("dni");
+  const sexo = document.getElementById("sexo");
+  const peso = document.getElementById("peso");
+  const altura = document.getElementById("altura");
+  const anioNacimiento = document.getElementById("anioNacimiento");
+
+  let errores = [];
+
+  if (!nombre.value.trim()) {
+    errores.push("El nombre es obligatorio.");
+  } else if (nombre.value.length < 2 || nombre.value.length > 40) {
+    errores.push("El nombre debe tener entre 2 y 40 caracteres.");
+  }
+
+  const edadVal = parseInt(edad.value);
+  if (!edad.value) {
+    errores.push("La edad es obligatoria.");
+  } else if (edadVal < 1 || edadVal > 120) {
+    errores.push("La edad debe estar entre 1 y 120.");
+  }
+
+  if (!sexo.value) {
+    errores.push("Debe seleccionar un sexo.");
+  }
+
+  if (!dni.value.trim()) {
+    errores.push("El DNI es obligatorio.");
+  } else if (dni.value.length < 6 || dni.value.length > 8) {
+    errores.push("El DNI debe tener entre 6 y 8 caracteres.");
+  }
+
+  if (!peso.value) {
+    errores.push("El peso es obligatorio.");
+  } else if (peso.value < 1 || peso.value > 120) {
+    errores.push("El peso debe estar entre 1 y 120.");
+  }
+
+  if (!altura.value) {
+    errores.push("La altura es obligatoria.");
+  } else if (altura.value < 1 || altura.value > 300) {
+    errores.push("La altura debe estar entre 1 y 300.");
+  }
+
+  const anioVal = parseInt(anioNacimiento.value);
+  if (!anioNacimiento.value) {
+    errores.push("El año de nacimiento es obligatorio.");
+  } else if (anioVal < 1900 || anioVal > 2025) {
+    errores.push("El año de nacimiento debe estar entre 1900 y 2025.");
+  }
+
+  if (errores.length > 0) {
+    alert("Corrige los siguientes errores:\n\n" + errores.join("\n"));
+    return false;
+  }
+
+  return true;
+};
+
 const mostrarGeneracion = (e) => {
   e.preventDefault();
+  if (!validarFormulario()) return;
+
   const contenedor = document.getElementById("contenedorGeneracion");
   contenedor.classList.toggle("d-none");
 
@@ -104,6 +167,8 @@ const mostrarGeneracion = (e) => {
 
 const mayorEdad = (e) => {
   e.preventDefault();
+  if(!validarFormulario()) return;
+
   const contenedor = document.getElementById("contenedorEdad");
   contenedor.classList.toggle("d-none");
 
@@ -124,8 +189,10 @@ const mayorEdad = (e) => {
   </ul>`;
 };
 
-const mostrarDatos = (e) =>{
+const mostrarDatos = (e) => {
   e.preventDefault();
+  if(!validarFormulario()) return;
+
   const contenedor = document.getElementById("contenedorDatos");
   contenedor.classList.toggle("d-none");
 
@@ -146,7 +213,7 @@ const mostrarDatos = (e) =>{
     <li>Altura: ${persona.getAltura}</li>
     <li>Año de nacimiento: ${persona.getAnioNacimiento}</li>
   </ul>`;
-}
+};
 
 const btnMostrarGeneracion = document.getElementById("btnMostrarGeneracion");
 const btnMayorEdad = document.getElementById("btnMayorEdad");
