@@ -65,38 +65,51 @@ const crearPersona = () => {
 
 const mostrarGeneracion = (e) => {
   e.preventDefault();
-  const btnMostrarGeneracion = document.getElementById("btnGeneracion");
+  const contenedor = document.getElementById("contenedorGeneracion");
   btnMostrarGeneracion.classList.toggle("d-none");
+  const btn = document.getElementById("btnMostrarGeneracion");
+  if (btn === "Mayor de edad") {
+    btn.classList.remove("d-none");
+    btn.textContent = "Ocultar Mayor edad";
 
-  const persona = crearPersona();
+    const persona = crearPersona();
 
-  const [generacion, caracteristica] = persona.obtenerGeneracion();
+    const [generacion, caracteristica] = persona.obtenerGeneracion();
 
-  const parrafoMostrarGeneracion = document.getElementById(
-    "resultadoGeneracion"
-  );
-  parrafoMostrarGeneracion.innerHTML = `<ul>
+    const parrafoMostrarGeneracion = document.getElementById(
+      "resultadoGeneracion"
+    );
+    parrafoMostrarGeneracion.innerHTML = `<ul>
   <li>Nombre: ${persona.getNombre}</li>
   <li>Edad: ${persona.getEdad}</li>
   <li>Año de nacimiento: ${persona.getAnioNacimiento}</li>
   <li>Generación: ${generacion}</li>
   <li>Caracteristica: ${caracteristica}</li>
   </ul>`;
+  } else {
+    btn.classList.add("d-none");
+  }
 };
 
 const mayorEdad = (e) => {
   e.preventDefault();
-  const btnMayorEdad = document.getElementById("btnEdad");
-  btnMayorEdad.classList.toggle("d-none");
+  const contenedor = document.getElementById("contenedorEdad");
+  contenedor.classList.toggle("d-none");
+
+  const btn = document.getElementById("btnMayorEdad");
+  btn.textContent = contenedor.classList.contains("d-none")
+    ? "Mayor de edad"
+    : "Ocultar Mayor de edad";
 
   const persona = crearPersona();
   const edadPersona = persona.mayorEdad();
 
   const parrafoMayorEdad = document.getElementById("resultadoMayorEdad");
+
   parrafoMayorEdad.innerHTML = `<ul>
-  <li>Nombre: ${persona.getNombre}</li>
-  <li>Edad: ${persona.getEdad}</li>
-  <li>Estado: ${edadPersona}</li>
+    <li>Nombre: ${persona.getNombre}</li>
+    <li>Edad: ${persona.getEdad}</li>
+    <li>Estado: ${edadPersona}</li>
   </ul>`;
 };
 
