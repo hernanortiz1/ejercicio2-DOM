@@ -25,6 +25,22 @@ class Persona {
     return this.#edad;
   }
 
+  get getDni() {
+    return this.#dni;
+  }
+
+  get getSexo() {
+    return this.#sexo;
+  }
+
+  get getPeso() {
+    return this.#peso;
+  }
+
+  get getAltura() {
+    return this.#altura;
+  }
+
   get getAnioNacimiento() {
     return this.#anioNacimiento;
   }
@@ -108,8 +124,34 @@ const mayorEdad = (e) => {
   </ul>`;
 };
 
+const mostrarDatos = (e) =>{
+  e.preventDefault();
+  const contenedor = document.getElementById("contenedorDatos");
+  contenedor.classList.toggle("d-none");
+
+  const btn = document.getElementById("btnMostraDatos");
+  btn.textContent = contenedor.classList.contains("d-none")
+    ? "Mostrar datos"
+    : "Ocultar Mostrar datos";
+
+  const persona = crearPersona();
+
+  const resultado = document.getElementById("resultadoDatos");
+  resultado.innerHTML = `<ul>
+    <li>Nombre: ${persona.getNombre}</li>
+    <li>Edad: ${persona.getEdad}</li>
+    <li>DNI: ${persona.getDni}</li>
+    <li>Sexo: ${persona.getSexo}</li>
+    <li>Peso: ${persona.getPeso}</li>
+    <li>Altura: ${persona.getAltura}</li>
+    <li>Año de nacimiento: ${persona.getAnioNacimiento}</li>
+  </ul>`;
+}
+
 const btnMostrarGeneracion = document.getElementById("btnMostrarGeneracion");
 const btnMayorEdad = document.getElementById("btnMayorEdad");
+const btnMostrarDatos = document.getElementById("btnMostraDatos");
 
 btnMostrarGeneracion.addEventListener("click", mostrarGeneracion);
 btnMayorEdad.addEventListener("click", mayorEdad);
+btnMostrarDatos.addEventListener("click", mostrarDatos);
