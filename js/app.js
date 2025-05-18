@@ -66,29 +66,24 @@ const crearPersona = () => {
 const mostrarGeneracion = (e) => {
   e.preventDefault();
   const contenedor = document.getElementById("contenedorGeneracion");
-  btnMostrarGeneracion.classList.toggle("d-none");
+  contenedor.classList.toggle("d-none");
+
   const btn = document.getElementById("btnMostrarGeneracion");
-  if (btn === "Mayor de edad") {
-    btn.classList.remove("d-none");
-    btn.textContent = "Ocultar Mayor edad";
+  btn.textContent = contenedor.classList.contains("d-none")
+    ? "Mostrar generación"
+    : "Ocultar Mostrar generación";
 
-    const persona = crearPersona();
+  const persona = crearPersona();
+  const [generacion, caracteristica] = persona.obtenerGeneracion();
 
-    const [generacion, caracteristica] = persona.obtenerGeneracion();
-
-    const parrafoMostrarGeneracion = document.getElementById(
-      "resultadoGeneracion"
-    );
-    parrafoMostrarGeneracion.innerHTML = `<ul>
-  <li>Nombre: ${persona.getNombre}</li>
-  <li>Edad: ${persona.getEdad}</li>
-  <li>Año de nacimiento: ${persona.getAnioNacimiento}</li>
-  <li>Generación: ${generacion}</li>
-  <li>Caracteristica: ${caracteristica}</li>
+  const resultado = document.getElementById("resultadoGeneracion");
+  resultado.innerHTML = `<ul>
+    <li>Nombre: ${persona.getNombre}</li>
+    <li>Edad: ${persona.getEdad}</li>
+    <li>Año de nacimiento: ${persona.getAnioNacimiento}</li>
+    <li>Generación: ${generacion}</li>
+    <li>Característica: ${caracteristica}</li>
   </ul>`;
-  } else {
-    btn.classList.add("d-none");
-  }
 };
 
 const mayorEdad = (e) => {
