@@ -21,7 +21,8 @@ main {
 
 .contenedorPrincipal,
 .contenedorGeneracion,
-.contenedorMayorEdad {
+.contenedorMayorEdad,
+.contenedorDatos{
   justify-content: center;
   align-content: center;
   border-radius: 5px;
@@ -41,4 +42,8 @@ main {
 
 .contenedorMayorEdad {
   background-color: #198754;
+}
+
+.contenedorDatos {
+  background-color: rgb(107, 4, 4);
 }
