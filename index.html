@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="dark">
-<meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Practica de DOM" />
     <meta name="author" content="Hernan Ortiz" />
@@ -14,12 +15,10 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Ejercicio 2 DOM</title>
   </head>
-<body>
+  <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div
-          class="container"
-        >
+        <div class="container">
           <a class="navbar-brand" href="./index.html">Inicio</a>
           <button
             class="navbar-toggler"
@@ -39,10 +38,152 @@
         </div>
       </nav>
     </header>
-    <footer class="bg-dark-subtle py-3">
-        <div class="container d-flex gap-3 justify-content-center">
-             <h2>Desarrollado por <a href="https://github.com/hernanortiz1/" class="text-decoration-none" target="_blank">Hernán Ortiz</a></h2>
+    <main>
+      <section class="container mb-5 mt-4">
+        <div class="contenedorPrincipal">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label"
+                >Nombre<span> *</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Ej: Juan Perez"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="edad" class="form-label">Edad<span> *</span></label>
+              <input
+                type="number"
+                class="form-control"
+                id="edad"
+                aria-describedby="edad"
+                placeholder="Ej: 26"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dni" class="form-label">DNI<span> *</span></label>
+              <input
+                type="text"
+                class="form-control"
+                id="dni"
+                placeholder="Ej: 12345678"
+                minlength="6"
+                maxlength="8"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="sexo" class="form-label me-2">Sexo</label>
+              <select id="sexo">
+                <option value="">Seleccionar</option>
+                <option value="mujer">Mujer</option>
+                <option value="hombre">Hombre</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="peso" class="form-label"
+                >Peso (kg)<span> *</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="peso"
+                placeholder="Ej: 70 kg"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="altura" class="form-label"
+                >Altura (cm) <span> *</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="altura"
+                placeholder="Ej: 180"
+                min="1"
+                max="300"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="anioNacimiento" class="form-label"
+                >Año de nacimiento<span> *</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="anioNacimiento"
+                placeholder="Ej: 1998"
+                min="1900"
+                max="2025"
+                required
+              />
+            </div>
+            <div id="mensajeAyuda" class="form-text my-3">
+              Los campos (*) son obligatorios.
+            </div>
+            <div class="d-flex gap-3 justify-content-center mt-4">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="btnMostrarGeneracion"
+              >
+                Mostrar generación
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                onclick="verificarMayorEdad()"
+              >
+                Mayor de edad
+              </button>
+              <button
+                type="submit"
+                class="btn btn-outline-danger"
+                onclick="verificarMayorEdad()"
+              >
+                Mostrar datos
+              </button>
+            </div>
+          </form>
+          <div class="contenedorGeneracion mt-4 d-none" id="btnGeneracion">
+            <h3>Mostrar generación</h3>
+            <p id="resultadoGeneracion"></p>
+          </div>
         </div>
+      </section>
+    </main>
+    <footer class="bg-dark-subtle py-3">
+      <div class="container d-flex gap-3 justify-content-center">
+        <h2>
+          Desarrollado por
+          <a
+            href="https://github.com/hernanortiz1/"
+            class="text-decoration-none"
+            target="_blank"
+            >Hernán Ortiz</a
+          >
+        </h2>
+      </div>
     </footer>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/app.js"></script>
+  </body>
 </html>
