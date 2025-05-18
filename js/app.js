@@ -43,17 +43,19 @@ class Persona {
 
 const mostrarGeneracion = (e) => {
   e.preventDefault();
+  const btnMostrarGeneracion = document.getElementById("btnGeneracion");
 
-  const btnMostrarGeneracion = document.getElementById("contenedorGeneracion");
   btnMostrarGeneracion.classList.toggle("d-none");
 
   const datos = document.getElementsByTagName("input");
+  console.log(datos);
   const nombre = datos[0].value;
   const edad = parseInt(datos[1].value);
   const dni = datos[2].value;
-  const peso = datos[4].value;
-  const altura = datos[5].value;
-  const anioNacimiento = parseInt(datos[6].value);
+  const sexo = document.getElementById("sexo").value;
+  const peso = datos[3].value;
+  const altura = datos[4].value;
+  const anioNacimiento = parseInt(datos[5].value);
 
   const persona = new Persona(
     nombre,
