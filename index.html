@@ -135,6 +135,7 @@
             <div id="mensajeAyuda" class="form-text my-3">
               Los campos (*) son obligatorios.
             </div>
+            <!-- BOTONES -->
             <div class="d-flex gap-3 justify-content-center mt-4">
               <button
                 type="submit"
@@ -146,22 +147,27 @@
               <button
                 type="submit"
                 class="btn btn-success"
-                onclick="verificarMayorEdad()"
+                id="btnMayorEdad"
               >
                 Mayor de edad
               </button>
               <button
                 type="submit"
                 class="btn btn-outline-danger"
-                onclick="verificarMayorEdad()"
+                id="btnMostraDatos"
               >
                 Mostrar datos
               </button>
             </div>
           </form>
+          <!-- RESULTADOS -->
           <div class="contenedorGeneracion mt-4 d-none" id="btnGeneracion">
             <h3>Mostrar generación</h3>
             <p id="resultadoGeneracion"></p>
+          </div>
+          <div class="contenedorMayorEdad mt-4 d-none" id="btnEdad">
+            <h3>Mayor de edad</h3>
+            <p id="resultadoMayorEdad"></p>
           </div>
         </div>
       </section>

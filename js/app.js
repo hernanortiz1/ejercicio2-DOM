@@ -39,33 +39,37 @@ class Persona {
     if (anio >= 1981 && anio <= 1993) return ["Generación Y", "Frustración"];
     if (anio >= 1994 && anio <= 2010) return ["Generación Z", "Irreverencia"];
   }
+
+  mayorEdad() {
+    const edad = this.#edad;
+    if (edad >= 18) {
+      return "Mayor de edad";
+    } else {
+      return "Menor de edad";
+    }
+  }
 }
+
+const crearPersona = () => {
+  const datos = document.getElementsByTagName("input");
+  return new Persona(
+    datos[0].value,
+    parseInt(datos[1].value),
+    datos[2].value,
+    document.getElementById("sexo").value,
+    datos[3].value,
+    datos[4].value,
+    parseInt(datos[5].value)
+  );
+};
 
 const mostrarGeneracion = (e) => {
   e.preventDefault();
   const btnMostrarGeneracion = document.getElementById("btnGeneracion");
-
   btnMostrarGeneracion.classList.toggle("d-none");
 
-  const datos = document.getElementsByTagName("input");
-  console.log(datos);
-  const nombre = datos[0].value;
-  const edad = parseInt(datos[1].value);
-  const dni = datos[2].value;
-  const sexo = document.getElementById("sexo").value;
-  const peso = datos[3].value;
-  const altura = datos[4].value;
-  const anioNacimiento = parseInt(datos[5].value);
+  const persona = crearPersona();
 
-  const persona = new Persona(
-    nombre,
-    edad,
-    dni,
-    sexo,
-    peso,
-    altura,
-    anioNacimiento
-  );
   const [generacion, caracteristica] = persona.obtenerGeneracion();
 
   const parrafoMostrarGeneracion = document.getElementById(
@@ -80,5 +84,24 @@ const mostrarGeneracion = (e) => {
   </ul>`;
 };
 
+const mayorEdad = (e) => {
+  e.preventDefault();
+  const btnMayorEdad = document.getElementById("btnEdad");
+  btnMayorEdad.classList.toggle("d-none");
+
+  const persona = crearPersona();
+  const edadPersona = persona.mayorEdad();
+
+  const parrafoMayorEdad = document.getElementById("resultadoMayorEdad");
+  parrafoMayorEdad.innerHTML = `<ul>
+  <li>Nombre: ${persona.getNombre}</li>
+  <li>Edad: ${persona.getEdad}</li>
+  <li>Estado: ${edadPersona}</li>
+  </ul>`;
+};
+
 const btnMostrarGeneracion = document.getElementById("btnMostrarGeneracion");
+const btnMayorEdad = document.getElementById("btnMayorEdad");
+
 btnMostrarGeneracion.addEventListener("click", mostrarGeneracion);
+btnMayorEdad.addEventListener("click", mayorEdad);
