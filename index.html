@@ -39,7 +39,7 @@
       </nav>
     </header>
     <main>
-      <section class="container">
+      <section class="container mb-5 mt-4">
         <div class="contenedorPrincipal">
           <form>
             <div class="mb-3">
@@ -81,24 +81,15 @@
                 required
               />
             </div>
-
             <div class="mb-3">
-              <label for="sexo" class="form-label">Sexo<span> *</span></label>
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle bg-dark"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Elegir opción
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Mujer</a></li>
-                  <li><a class="dropdown-item" href="#">Hombre</a></li>
-                </ul>
-              </div>
+              <label for="sexo" class="form-label me-2">Sexo</label>
+              <select id="sexo">
+                <option value="">Seleccionar</option>
+                <option value="mujer">Mujer</option>
+                <option value="hombre">Hombre</option>
+              </select>
             </div>
+
             <div class="mb-3">
               <label for="peso" class="form-label"
                 >Peso (kg)<span> *</span></label
@@ -110,6 +101,20 @@
                 placeholder="Ej: 70 kg"
                 min="1"
                 max="120"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="altura" class="form-label"
+                >Altura (cm) <span> *</span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="altura"
+                placeholder="Ej: 180"
+                min="1"
+                max="300"
                 required
               />
             </div>
@@ -130,7 +135,34 @@
             <div id="mensajeAyuda" class="form-text my-3">
               Los campos (*) son obligatorios.
             </div>
+            <div class="d-flex gap-3 justify-content-center mt-4">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="btnMostrarGeneracion"
+              >
+                Mostrar generación
+              </button>
+              <button
+                type="submit"
+                class="btn btn-success"
+                onclick="verificarMayorEdad()"
+              >
+                Mayor de edad
+              </button>
+              <button
+                type="submit"
+                class="btn btn-outline-danger"
+                onclick="verificarMayorEdad()"
+              >
+                Mostrar datos
+              </button>
+            </div>
           </form>
+          <div class="contenedorGeneracion mt-4 d-none" id="btnGeneracion">
+            <h3>Mostrar generación</h3>
+            <p id="resultadoGeneracion"></p>
+          </div>
         </div>
       </section>
     </main>
