@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #a3cef1;
 }
 
 main {
@@ -38,7 +39,7 @@ main {
   padding: 50px;
   border-radius: 15px;
   box-shadow: 0 1px 10px gray;
-  background-color: #131313;
+  background-color: #274c77;
 }
 
 .contenedorGeneracion {
@@ -51,4 +52,13 @@ main {
 
 .contenedorDatos {
   background-color: rgb(107, 4, 4);
+}
+
+label{
+  font-size: 20px;
+}
+
+input.form-control {
+  background-color: #14213d !important;
+  color: white; 
 }
