@@ -62,3 +62,12 @@ input.form-control {
   background-color: #14213d !important;
   color: white; 
 }
+
+
+@media (max-width: 767px) {
+   .contenedorPrincipal {
+    padding: 15px;
+  }
+
+  
+}
